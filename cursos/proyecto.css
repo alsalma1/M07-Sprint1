@@ -1,0 +1,223 @@
+body{
+    font-family:Calibri;
+    background-image: url(pic/Diseño\ sin\ título.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 1000px;
+}
+h1 , h2{
+    font-family: Comic Sans Ms;
+}
+form{
+    margin-bottom: 50px;
+}
+
+a:link{
+    text-decoration: none;
+}
+.salir a{
+    color: #006414;
+    background-color: #beb2b8;
+    border: 1px solid;
+    border-radius: 7px;
+    padding: 10px;
+    font-size: 15px;
+}
+
+/* ----------------------- Principal ---------------------- */
+header{
+    display: flex;
+    width: 40%;
+    float: right;
+    padding: 30px ;
+    margin-bottom: 30px;
+}
+.p1 , .p2 {
+    color: #6e113e;
+    padding: 10px;
+    margin-right: 40px;
+}
+.p1:hover , .p2:hover {
+    color: #FBB726;
+    border: 1px solid;
+}
+.p3:hover{
+    color:#cf4a16;
+}
+.p3{
+    background-color: #b3b0a5;
+    border-radius: 8px;
+    padding: 10px;
+    color : #006414;
+}
+.picP{
+    height: 40%;
+    width: 40%;
+    float: right;
+}
+.titulo{
+    font-size: 100px;
+    font-family: Cambria;
+    color: #6e113e;
+}
+.subti{
+    font-size: 40px;
+    font-family:Verdana;
+    margin-left: 70px;
+    color: rgb(83, 83, 83);
+    font-style: oblique;
+}
+.texto{
+    padding-top: 90px;
+    float: left;
+    margin-left: 100px;
+    margin-top: 40px;
+}
+
+/* ----------------------- LoginAdmin ---------------------- */
+.logo{
+    height: 15%;
+    width: 15%;
+    max-width:100%;
+	height:auto;
+}
+.img1{
+    width: 15%;
+    height: 15%;
+    border-radius: 180px;
+    border: 2px solid;
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+.inp1,.inp2{
+    border-radius: 5px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+.T1{
+    width: 50%;
+    margin: auto;
+    text-align: center;
+    margin-top: 5%;
+    color: #6e113e;
+    font-size: 50px;
+}
+.salir{
+    float: right;
+    padding: 30px;
+}
+#divf{
+    border : 3px solid #6e113e;
+    border-radius: 10px;
+    width: 40%;
+    padding-bottom: 40px;
+    text-align: center;
+    margin: auto;
+    margin-top: 40px;
+}
+
+/* ----------------------- Menu ---------------------- */
+.Gp a , .Gc a{
+    color: black;
+    font-size: 20px;
+    font-weight: bold;
+}
+.Gp{
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 80px;
+    background-color: #971856;
+    margin-right: 30px;
+}
+
+.Gc{
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 80px;
+    background-color: #5ccb5f;
+
+}
+.G{
+    display: flex;
+    justify-content: center;
+    padding-top: 50px;
+    margin: 0;
+    
+}
+
+/* ----------------------- Gestion cursos ---------------------- */
+.enviar{
+    margin-left: 100px;
+    margin-top: 30px;
+}
+
+.elim , .edit{
+    height: 20px;
+    width: 20px;
+}
+
+.elim{
+    background-color: rgb(219, 56, 56);
+}
+
+.edit{
+    background-color: rgb(66, 175, 66);
+}
+td{
+    padding-left: 30px;
+    
+}
+
+.Tcur{
+    border-collapse:collapse;
+    border: 1px solid;
+    width: 70%;
+    margin: auto;
+}
+
+.tr{
+    font-weight: bold;
+    border-bottom: 1px solid;
+}
+.lc{
+    width: 40%;
+    margin: auto;
+    text-align: center;
+    font-size: 50px;
+    border-bottom: 30px;
+}
+.busc{
+    margin:60px;
+}
+.ac a{
+    background-color: #beb2b8;
+    border: 1px solid;
+    border-radius: 7px;
+    padding: 10px;
+    font-size: 15px;
+}
+.search{
+    border-radius: 5px;
+}
+
+/* ----------------------- Insertar cursos ---------------------- */
+.vc a{
+    background-color: #beb2b8;
+    border: 1px solid;
+    border-radius: 7px;
+    padding: 10px;
+    font-size: 15px; 
+}
+
+
+
+
+
+
+
+
+.fotito{
+    width: 1000px;
+    height: 1000px;
+}
