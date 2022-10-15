@@ -9,7 +9,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Modificar profesores</title>
+    <title>Modificar imagen</title>
     <link rel="stylesheet" href="proyecto.css">
 </head>
 <body>
@@ -41,13 +41,18 @@
         <?php
         if (!$_POST){
             ?>
-            <h1 class='lc'>Modificar profesores</h1>
-            <?php modificarProf($conn , $fila); ?>
-
+            <h1 class='lc'>Modificar imagen</h1>
+                <form class="mfoto" action="editFoto.php" method="POST" enctype="multipart/form-data">  
+                    <div>
+                        <label for="archivo">Fotografía </label>
+                        <input type="file" name="archivo" value="<?php echo $fila['fotografia']?>" style="color:#4959ff" required/><br>
+                    </div>
+                    <input class="modi" type="submit" name="Modificar" value="Modificar"/>
+                </form> 
         <?php
         }
         else{?>
-            <META HTTP-EQUIV="REFRESH" CONTENT="0;URL=editP.php?>">
+            <META HTTP-EQUIV="REFRESH" CONTENT="0;URL=editFoto.php">
             <?php
         }
     }
@@ -57,3 +62,10 @@
     ?>     
 </body>
 </html>
+
+
+
+
+<?php
+
+?>

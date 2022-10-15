@@ -1,6 +1,6 @@
 <?php
-    include("funciones.php");
     session_start();
+    include("funciones.php");
 ?>
 
 <!DOCTYPE html>
@@ -13,13 +13,24 @@
     <link rel="stylesheet" href="proyecto.css">
 </head>
 <?php
-    if(isset($_SESSION['admin'])){?>
+    if(isset($_SESSION['admin'])){
+        $conn = conexion();?>
+        <!-- Menu -->
+        <ul class="vertical-menu">
+            <li>
+                <a href="#"><img src="pic/menu.png" alt=""></a>
+                <ul>
+                    <li><a href="Menu.php">Ver menú&nbsp</a></li>
+                    <li><a href="Gcursos.php">Ver cursos&nbsp</a></li>
+                    <li><a href="salir.php">Cerrar sesión</a></li>
+                </ul>
+            </li>
+        </ul>
+        <h4 class="rol"><?php echo $_SESSION['admin'].": Administrador" ?></h4>
         <a href="principal.php"><img class="logo" src="pic/logoN.png" alt="" /></a>
-        <p class="salir"><a href="Menu.php">Ver menú</p></a>
-        <h1>Añadir nuevos cursos</h1>
-        <!-- Imprimir el formulario -->
+        <h1 class='lc'>Añadir nuevos cursos</h1>
+            <!-- Imprimir el formulario -->
         <?php formInsertarCursos(); ?>
-        <h3 class="vc"><a href ='Gcursos.php'>Ver cursos</a><h3>
         
 
         <!------------------  Insertar los datos enviados en la tabla --------------->
@@ -27,7 +38,7 @@
         $conn = conexion();
         if($_POST){
             //Recogida de los datos introducidos en el formulario
-            $NombreCurso =  $_POST['nombre'];
+            $NombreCurso =  $_POST['nombreC'];
             $descri =  $_POST['descri'];
             $horas =  $_POST['horas'];
             $fechaI =  $_POST['fechaI'];
@@ -35,21 +46,27 @@
             $profesor =  $_POST['prof'];
 
             if($fechaI<$fechaF){
-                $sql = "INSERT INTO cursos (nombre , descripcion , horas , fechaInicio , fechaFinal , profesor) VALUES ('$NombreCurso' , '$descri' , '$horas' , '$fechaI' , '$fechaF' , '$profesor')";
+                $sql = "INSERT INTO cursos (nombreC , descripcion , horas , fechaInicio , fechaFinal , profesor) VALUES ('$NombreCurso' , '$descri' , '$horas' , '$fechaI' , '$fechaF' , '$profesor')";
                 $result = mysqli_query($conn,$sql);
-                
-                ?>
-                <script>alert("Se ha guardado el curso")</script>
-                <META HTTP-EQUIV="REFRESH" CONTENT="0;URL=Gcursos.php"><?php
+                if($result==False){?>
+                    <script>alert("Fallo al insertar el curso!!")</script>
+                    <META HTTP-EQUIV="REFRESH" CONTENT="0;URL=insertarC.php">
+                    <?php
+                }
+                else{?>
+                <script>alert("Se ha guardado el curso correctamente!")</script>
+                <META HTTP-EQUIV="REFRESH" CONTENT="0;URL=Gcursos.php"><
+                <?php 
+                }
             }
             else{?>
                 <script>
                     alert("La fecha de inicio de curso tiene que ser menor que la fecha del final")
                 </script>
-                <META HTTP-EQUIV="REFRESH" CONTENT="0;URL=insertarC.php"><?php
+                <?php
             }
+        }
            
-        } 
     }
     else{
         mensageError();

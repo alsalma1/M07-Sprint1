@@ -13,26 +13,22 @@
 </head>
 <body>
     <?php
-    if(isset($_SESSION['admin'])){?>
-        <?php
+
         $conn = conexion();
-        $dn = $_SESSION['dni'];
+
         $DNI =  $_POST['dni'];
         $Nombre =  $_POST['nombre'];
         $Apel =  $_POST['ape'];
-        $nu =  $_POST['nombreU'];
-        $tituA =  $_POST['ta'];
+        $email =  $_POST['email'];
+        $edad =  $_POST['edad'];
+        $emailA = $_SESSION['email'];
 
-        
-        $sql = "UPDATE `profesores` SET `nombre`='$Nombre',`apellidos`='$Apel',`titulo_academico`='$tituA',`NombreUsu`='$nu' WHERE DNI='$dn'";
+        $sql = "UPDATE `alumnos` SET `email`='$email',`nombre`='$Nombre',`apellidos`='$Apel',`edad`='$edad' WHERE email = '$emailA'";
         $result = mysqli_query($conn,$sql);
         ?>
-        <script>alert("Datos del profesor modificados correctamente!")</script>
-        <META HTTP-EQUIV="REFRESH" CONTENT="0;URL=Gprof.php"><?php
-    }
-    else{
-            mensageError();
-        }
+        <script>alert("Perfil modificado correctamente!")</script>
+        <META HTTP-EQUIV="REFRESH" CONTENT="0;URL=menuAl.php"><?php
+
     ?>
 </body>
 </html>

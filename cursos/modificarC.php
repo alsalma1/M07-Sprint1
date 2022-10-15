@@ -1,6 +1,6 @@
 <?php
-    include("funciones.php");
     session_start();
+    include("funciones.php");
 ?>
 
 <!DOCTYPE html>
@@ -15,8 +15,20 @@
 <body>
     <?php
         //Variable con los datos de conexión
-    $conn = conexion();
     if(isset($_SESSION['admin'])){
+        $conn = conexion();?>
+        <!-- Menu -->
+        <ul class="vertical-menu">
+            <li>
+                <a href="#"><img src="pic/menu.png" alt=""></a>
+                <ul>
+                    <li><a href="Menu.php">Ver menú&nbsp</a></li>
+                    <li><a href="Gcursos.php">Ver cursos&nbsp</a></li>
+                    <li><a href="salir.php">Cerrar sesión</a></li>
+                </ul>
+            </li>
+        </ul>
+        <?php
         //Recogida de los datos introducidos en el formulario
         $codi = $_GET['codi'];
         $_SESSION['codi'] = $codi;
@@ -26,62 +38,10 @@
             
         if (!$_POST){
             ?>
+            <h4 class="rol"><?php echo $_SESSION['admin'].": Administrador" ?></h4>
             <a href="principal.php"><img class="logo" src="pic/logoN.png" alt="" /></a>
-            <h1>Modificar curso</h1>
-            <form action="editC.php" method="POST">  
-                <!------------------- Formulario con valores anteriores para modificar ------>
-            <table class="tbl">
-                <tr>
-                    <td>Nombre </td>
-                    <td><input type="text" name="nombre" value="<?php echo $fila['nombre'] ?>" required /></td>
-                </tr>
-
-                <tr>
-                    <td>Descripción </td>
-                    <td>
-                        <textarea name="descri" maxlength="20"><?php echo $fila['descripcion']?></textarea>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Horas </td>
-                    <td><input type="Number"  max="5000" name="horas" maxlength="2" value="<?php echo $fila['horas'] ?>" required /></td>
-                </tr>
-
-                <tr>
-                    <td>Fecha inicio </td>
-                    <td><input type="date" name="fechaI" value="<?php echo $fila['fechaInicio'] ?>" required /></td>
-                </tr>
-
-                <tr>
-                    <td>Fecha final </td>
-                    <td><input type="date" name="fechaF" value="<?php echo $fila['fechaFinal'] ?>" required /></td>
-                </tr>
-
-                <tr>
-                    <td>Profesor </td>
-                    <td>
-                        <select name="prof" id="prof">
-                            <option value="" selected><?php echo $fila['profesor']?></option>
-                            <?php
-                                $conn = conexion();
-                                $sql ="SELECT * FROM profesores";
-                                $resultado = mysqli_query($conn,$sql);
-                                $num = mysqli_num_rows($resultado);
-
-                                for ($i = 0; $i < $num ; $i++)
-                                {
-                                    $linea = mysqli_fetch_assoc($resultado);
-                                    echo '<option>'.$linea['nombre'].'</option> ';
-                                }
-                            ?>
-                        </select>
-                    </td>
-                </tr>
-            </table>
-            <input class="modificar" type="submit" name="Modificar" value="Modificar"/>
-            </form> 
-
-            <h3 class="vc"><a href ='Gcursos.php'>Ver cursos</a><h3>
+            <h1 class='lc'>Modificar curso</h1>
+            <?php modificarCurso($conn , $fila);?>
         <?php
         }
         else{?>
