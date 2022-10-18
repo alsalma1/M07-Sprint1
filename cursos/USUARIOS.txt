@@ -1,0 +1,14 @@
+ ADMINISTRADOR:
+    admin
+    a
+
+
+
+ ALUMNO:
+    salma@
+    a
+
+
+ PROFESOR:
+    12345678O(es la letra o mayuscula no es zero)
+    o
